@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7e9eb" />
+  <title>OSD-English — Hawkins Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="lights" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="hero-copy">
+      <p class="eyebrow">OSD-ENGLISH</p>
+      <h1>HAWKINS <span>ENGLISH LAB</span></h1>
+      <p>Учись свободно. Исследуй всё, что интересно. Закрывай порталы знаниями.</p>
+      <button class="primary" data-scroll="#world">Открыть Hawkins Home</button>
+    </div>
+    <div class="mike-card">
+      <div class="avatar">M</div>
+      <div><b>Mike</b><p>Hi, Alice! Ready?</p></div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Навигация">
+    <button class="active" data-scroll="#world">HOME</button>
+    <button data-scroll="#rules">RULES</button>
+    <button data-scroll="#practice">PRACTICE</button>
+    <button data-scroll="#words">WORDS</button>
+    <button data-scroll="#progress">MY PROGRESS</button>
+  </nav>
+
+  <main>
+    <section id="world" class="section world-section">
+      <div class="section-head">
+        <div><p class="eyebrow">WORLD 1</p><h2>🏠 HAWKINS HOME</h2></div>
+        <div class="xp"><span id="xpValue">0</span> XP</div>
+      </div>
+      <p class="lead">Все режимы открыты сразу. Выбирай любой — порядок не обязателен.</p>
+      <div class="mode-grid">
+        <button class="mode" data-scroll="#explore"><span>🔦</span><b>EXPLORE</b><small>Исследуй дом</small></button>
+        <button class="mode" data-scroll="#words"><span>🗂️</span><b>WORDS</b><small>Слова + IPA + звук</small></button>
+        <button class="mode" data-scroll="#listen"><span>🎧</span><b>LISTEN</b><small>Слушай и выбирай</small></button>
+        <button class="mode" data-scroll="#read"><span>📖</span><b>READ</b><small>Читай и собирай</small></button>
+        <button class="mode" data-scroll="#rules"><span>💡</span><b>RULES</b><small>There is / are</small></button>
+        <button class="mode" data-scroll="#where"><span>📍</span><b>WHERE IS IT?</b><small>Предлоги места</small></button>
+        <button class="mode" data-scroll="#build"><span>🧩</span><b>BUILD</b><small>Собери предложение</small></button>
+        <button class="mode" data-scroll="#battle"><span>👹</span><b>BATTLE</b><small>Битва с Демогоргоном</small></button>
+      </div>
+    </section>
+
+    <section id="explore" class="section">
+      <div class="section-head"><h2>🔦 Explore the House</h2><span class="pill">tap & listen</span></div>
+      <div id="roomButtons" class="room-tabs"></div>
+      <div id="roomPanel" class="room-panel"></div>
+    </section>
+
+    <section id="words" class="section">
+      <div class="section-head"><h2>🗂️ Words</h2><span class="pill">British English</span></div>
+      <p class="lead">Нажми 🔊 — услышишь правильное британское произношение.</p>
+      <div id="wordGrid" class="word-grid"></div>
+    </section>
+
+    <section id="listen" class="section accent-blue">
+      <div class="section-head"><h2>🎧 Listen</h2><span class="pill">слово → предложение</span></div>
+      <div class="exercise-card">
+        <p id="listenPrompt">Нажми Play и выбери услышанное слово.</p>
+        <button id="listenPlay" class="primary">▶ Play</button>
+        <div id="listenOptions" class="answer-grid"></div>
+        <div id="listenFeedback" class="feedback"></div>
+      </div>
+    </section>
+
+    <section id="read" class="section accent-purple">
+      <div class="section-head"><h2>📖 Read & Build</h2><span class="pill">слово → звук</span></div>
+      <div class="exercise-card">
+        <h3>Собери слово по картинке 🪟</h3>
+        <div id="letterPool" class="letter-pool"></div>
+        <div id="builtWord" class="built-word">_ _ _ _ _ _</div>
+        <div class="row"><button id="clearWord" class="secondary">Сбросить</button><button id="checkWord" class="primary">Проверить</button></div>
+        <div id="readFeedback" class="feedback"></div>
+      </div>
+    </section>
+
+    <section id="rules" class="section rule-section">
+      <div class="section-head"><h2>💡 Rule: THERE IS / THERE ARE</h2><span class="pill">объяснение по-русски</span></div>
+      <div class="rule-grid">
+        <article><h3>THERE IS</h3><p>Говорим, когда предмет <b>один</b>.</p><p class="example">There is a bed in the room.</p><p>В комнате есть кровать.</p></article>
+        <article><h3>THERE ARE</h3><p>Говорим, когда предметов <b>несколько</b>.</p><p class="example">There are three books on the table.</p><p>На столе три книги.</p></article>
+      </div>
+      <div id="thereExercise" class="exercise-card"></div>
+    </section>
+
+    <section id="where" class="section">
+      <div class="section-head"><h2>📍 Where is it?</h2><span class="pill">in · on · under · next to</span></div>
+      <div class="preposition-scene">
+        <div class="scene-box"><span class="scene-ball">🔴</span><span class="scene-table">▰</span></div>
+        <div>
+          <p><b>Where is the ball?</b></p>
+          <div id="prepOptions" class="answer-grid"></div>
+          <div id="prepFeedback" class="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="build" class="section accent-pink">
+      <div class="section-head"><h2>🧩 Build a Sentence</h2><span class="pill">drag-like tap mode</span></div>
+      <p>Нажимай слова по порядку.</p>
+      <div id="sentencePool" class="sentence-pool"></div>
+      <div id="sentenceBuilt" class="sentence-built"></div>
+      <div class="row"><button id="resetSentence" class="secondary">Сбросить</button><button id="checkSentence" class="primary">Проверить</button></div>
+      <div id="sentenceFeedback" class="feedback"></div>
+    </section>
+
+    <section id="battle" class="section battle-section">
+      <div class="section-head"><h2>👹 Demogorgon Battle</h2><span class="pill">mini-battle</span></div>
+      <div class="battle-layout">
+        <div class="demogorgon">👹<div class="health"><span id="demoHealth"></span></div><small>Demogorgon</small></div>
+        <div class="battle-card">
+          <p id="battleQuestion"></p>
+          <div id="battleOptions" class="answer-grid"></div>
+          <div id="battleFeedback" class="feedback"></div>
+          <button id="nextBattle" class="primary hidden">Следующий ход</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="progress" class="section">
+      <div class="section-head"><h2>⭐ My Progress</h2><span class="pill">сохраняется</span></div>
+      <div class="progress-grid">
+        <article><b id="correctCount">0</b><small>правильных ответов</small></article>
+        <article><b id="streakCount">0</b><small>лучшая серия</small></article>
+        <article><b id="battleWins">0</b><small>побед над Демогоргоном</small></article>
+        <article><b id="wordsSeen">0</b><small>слов открыто</small></article>
+      </div>
+      <p class="note">Сейчас прогресс сохраняется в браузере как резерв. Следующий этап — подключаем профиль Алисы к Supabase, чтобы прогресс переносился между устройствами.</p>
+    </section>
+  </main>
+
+  <div id="characterToast" class="character-toast hidden" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
